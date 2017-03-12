@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <form action="total" method="post">
+            
+            <h1>Length of Test Burn</h1><br />
+            Feet
+            <input type="text" data-bind="value: feet, valueUpdate: 'afterkeydown'" name="value1"/>
+            Inch
+            <input type="text" data-bind="value: inch, valueUpdate: 'afterkeydown'" name="value2"/>
+            <br />
+            <br />
+            <b>Total Length</b><br/>
+            <p>feet: <span data-bind="text: feet"/></p>
+            <p>inches: <span data-bind="text: inch"/></p>
+            <br />         
+            <br />
+            <br />
+           
+            <h2>Time of Test Burn</h2><br />
+            Min
+            <input type="text"  data-bind="value: min, valueUpdate: 'afterkeydown'" name="value3" />
+            Sec
+            <input type="text"  data-bind="value: sec, valueUpdate: 'afterkeydown'" name="value4" />
+            <br />
+            <br />
+            <b>Total Time</b><br/>
+            <p>minutes: <span data-bind="text: min" /></p>
+            <p>seconds: <span data-bind="text: sec" /></p>
+            <br />
+            <br />
+            <br />
+            <script src="~/Scripts/knockout-3.4.1.js"></script>
+            <script>
+
+                var vm = {
+                    inch: ko.observable(),
+                    feet: ko.observable(),
+                    min: ko.observable(),
+                    sec: ko.observable()
+                };
+                vm.feet("0");
+                vm.inch("0");
+                vm.min("0");
+                vm.sec("0");
+                ko.applyBindings(vm);
+
+            </script>
+            <input type="radio" name="calc" value="Burn Rate" />Burn Rate<br />
+            <input type="submit" value="calculate" /><br/>
+                 
+                       
+            
+        </form>
+    </div>
+</body>
+</html>
